@@ -1,0 +1,26 @@
+{
+  "name": "ph-healthcare-server",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.1",
+    "prisma": "^6.5.0",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.19.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "migrate": "bun x prisma migrate dev",
+    "build": "bun run tsc",
+    "dev": "tsx watch src/server.ts",
+    "prod": ""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  }
+}
