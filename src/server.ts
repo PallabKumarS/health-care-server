@@ -1,14 +1,13 @@
-import app from "./app";
+import app from './app';
 
-import { Server } from "http";
-import config from "./app/config";
+import { Server } from 'http';
+import config from './app/config';
 
 let server: Server;
 
-async function main() {
+async function main(): Promise<void> {
   try {
     // connect to database
-   
 
     server = app.listen(config.port, () => {
       console.log(`app is listening on port ${config.port}`);
@@ -20,8 +19,8 @@ async function main() {
 }
 main();
 
-process.on("unhandledRejection", (err) => {
-  console.log("Unhandled Rejection detected, closing server...", err);
+process.on('unhandledRejection', (err) => {
+  console.log('Unhandled Rejection detected, closing server...', err);
   if (server) {
     server.close(() => {
       process.exit(1);
@@ -30,7 +29,7 @@ process.on("unhandledRejection", (err) => {
   process.exit(1);
 });
 
-process.on("uncaughtException", (err) => {
-  console.log("Uncaught Exception detected, closing server...", err);
+process.on('uncaughtException', (err) => {
+  console.log('Uncaught Exception detected, closing server...', err);
   process.exit(1);
 });
